@@ -1,10 +1,10 @@
 .dark {
-    --breakpoints-values-xs: 0;
-    --breakpoints-values-sm: 600;
-    --breakpoints-values-md: 960;
-    --breakpoints-values-lg: 1280;
-    --breakpoints-values-xl: 1920;
-    --mixins-toolbar-minHeight: 56;
+    --breakpoints-values-xs: 0px;
+    --breakpoints-values-sm: 600px;
+    --breakpoints-values-md: 960px;
+    --breakpoints-values-lg: 1280px;
+    --breakpoints-values-xl: 1920px;
+    --mixins-toolbar-minHeight: 56px;
     --palette-common-black: #000;
     --palette-common-white: #fff;
     --palette-type: dark;
@@ -94,13 +94,13 @@
     --shadows-22: 0px 10px 14px -6px rgba(0, 0, 0, 0.2), 0px 22px 35px 3px rgba(0, 0, 0, 0.14), 0px 8px 42px 7px rgba(0, 0, 0, 0.12);
     --shadows-23: 0px 11px 14px -7px rgba(0, 0, 0, 0.2), 0px 23px 36px 3px rgba(0, 0, 0, 0.14), 0px 9px 44px 8px rgba(0, 0, 0, 0.12);
     --shadows-24: 0px 11px 15px -7px rgba(0, 0, 0, 0.2), 0px 24px 38px 3px rgba(0, 0, 0, 0.14), 0px 9px 46px 8px rgba(0, 0, 0, 0.12);
-    --typography-htmlFontSize: 16;
+    --typography-htmlFontSize: 16px;
     --typography-fontFamily: "Roboto", "Helvetica", "Arial", sans-serif;
-    --typography-fontSize: 14;
+    --typography-fontSize: 14px;
     --typography-fontWeightLight: 300;
-    --typography-fontWeightRegular: 400;
-    --typography-fontWeightMedium: 500;
-    --typography-fontWeightBold: 700;
+    --typography-fontWeightRegular: 400px;
+    --typography-fontWeightMedium: 500px;
+    --typography-fontWeightBold: 700px;
     --typography-h1-fontFamily: "Roboto", "Helvetica", "Arial", sans-serif;
     --typography-h1-fontWeight: 300;
     --typography-h1-fontSize: 6rem;
@@ -168,7 +168,7 @@
     --typography-overline-lineHeight: 2.66;
     --typography-overline-letterSpacing: 0.08333em;
     --typography-overline-textTransform: uppercase;
-    --shape-borderRadius: 4;
+    --shape-borderRadius: 4px;
     --transitions-easing-easeInOut: cubic-bezier(0.4, 0, 0.2, 1);
     --transitions-easing-easeOut: cubic-bezier(0.0, 0, 0.2, 1);
     --transitions-easing-easeIn: cubic-bezier(0.4, 0, 1, 1);
@@ -383,5 +383,14 @@
 }
 
 body {
-    background: var(--palette-background-default);
+    background-color: var(--palette-background-default);
+    font-family: var(--typography-fontFamily);
+    font-size: var(--typography-fontSize);
+    font-weight: var(--typography-fontWeightRegular);
+    color: var(--palette-text-primary)
+}
+
+.button {
+    user-select: none;
+    cursor: pointer;
 }
