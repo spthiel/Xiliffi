@@ -3,14 +3,16 @@
     <head>
         <title>XLIFF Editor</title>
         <link href="css/style.css" rel="stylesheet"/>
-        <link href="../../css/theme.css" rel="stylesheet"/>
-        <link href="../../css/color.css" rel="stylesheet"/>
+        <script src="https://spthiel.github.io/materialcss/js/materialcss.js"></script>
     </head>
     <body>
-        <div class="modal primary button" onclick="openFileBrowser()">
-            <div>Select the xliff folder</div>
+        <div class="modal">
+            <form>
+            <input type="text" name="hl" class="textinput spacing-bottom" maxlength="2" placeholder="source [EN]">
+            <input type="text" name="sl" class="textinput spacing-bottom nocursor" placeholder="targets [DE]" onkeydown="formatArray(event)">
+            </form>
+            <div class="primary button nowrap" onclick="openFileBrowser()">Select the xliff folder</div>
         </div>
         <script src="js/main.js" type="application/javascript"></script>
-        <script src="../../js/darkmode.js" type="application/javascript"></script>
     </body>
 </html>

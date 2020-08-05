@@ -6,3 +6,37 @@
     padding: 10px;
     border-radius: var(--shape-borderRadius);
 }
+
+input {
+    color: var(--palette-primary-main);
+    font-family: var(--typography-button-fontFamily);
+    font-weight: var(--typography-button-fontWeight);
+    font-size: var(--typography-button-fontSize);
+    line-height: var(--typography-button-lineHeight);
+    letter-spacing: var(--typography-button-letterSpacing);
+    text-transform: var(--typography-button-textTransform);
+    background-color: var(--palette-primary-contrastText);
+    border: none;
+    padding: 5px;
+    border-radius: var(--shape-borderRadius) var(--shape-borderRadius) 0 0;
+    border-bottom: 2px solid var(--palette-primary-main);
+    transition: .4s color, .4s border-bottom-color;
+    outline: none;
+}
+
+input:focus {
+    color: var(--palette-secondary-main);
+    border-bottom-color: var(--palette-secondary-main);
+}
+
+.spacing-bottom {
+    margin-bottom: 5px;
+}
+
+.nowrap {
+    text-wrap: none;
+}
+
+.nocursor {
+    caret-color: transparent;
+}
