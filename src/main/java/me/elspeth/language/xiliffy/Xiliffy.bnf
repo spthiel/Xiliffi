@@ -1,0 +1,25 @@
+{
+  parserClass="me.elspeth.language.xiliffy.XiliffyParser"
+
+  extends="com.intellij.extapi.psi.ASTWrapperPsiElement"
+
+  psiClassPrefix="Xiliffy"
+  psiImplClassSuffix="Impl"
+  psiPackage="me.elspeth.language.xiliffy.psi"
+  psiImplPackage="me.elspeth.language.xiliffy.psi.impl"
+
+  elementTypeHolderClass="me.elspeth.language.xiliffy.psi.XiliffyTypes"
+  elementTypeClass="me.elspeth.language.xiliffy.psi.XiliffyElementType"
+  tokenTypeClass="me.elspeth.language.xiliffy.psi.XiliffyTokenType"
+
+  psiImplUtilClass="me.elspeth.language.xiliffy.psi.impl.XiliffyPsiImplUtil"
+}
+
+xiliffyFile ::= line
+
+private line ::= (WHITESPACE|CRLF)* (COMMENT|CLASSKEY|note|property) lineend
+
+note ::= NOTEKEY WHITESPACE? SEPARATOR WHITESPACE? NOTEVALUE
+property ::= KEY WHITESPACE? SEPARATOR WHITESPACE? VALUE
+
+private lineend ::= ((COMMENT|WHITESPACE)? CRLF line) | (COMMENT|WHITESPACE)?

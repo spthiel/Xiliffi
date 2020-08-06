@@ -1,0 +1,27 @@
+<idea-plugin>
+    <id>me.elspeth.Xiliffy_support</id>
+    <name>Xiliffy Support</name>
+    <vendor email="sp4rklingskull@gmail.com" url="https://github.com/spthiel">Elspeth</vendor>
+
+    <description><![CDATA[
+    Enables text highlighting for xiliffy files
+    ]]></description>
+
+    <!-- please see https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <fileType name="Xiliffy File" implementationClass="me.elspeth.language.xiliffy.XiliffyFileType"
+                  fieldName="INSTANCE" language="Xiliffy" extensions="xiliffy"/>
+        <lang.parserDefinition language="Xiliffy"
+                               implementationClass="me.elspeth.language.xiliffy.XiliffyParserDefinition"/>
+        <lang.syntaxHighlighterFactory language="Xiliffy"
+                                       implementationClass="me.elspeth.language.xiliffy.XiliffySyntaxHighlighterFactory"/>
+        <colorSettingsPage implementation="me.elspeth.language.xiliffy.XiliffyColorSettingsPage"/>
+    </extensions>
+
+    <actions>
+        <!-- Add your actions here -->
+    </actions>
+</idea-plugin>
