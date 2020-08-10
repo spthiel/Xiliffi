@@ -1,9 +1,7 @@
 package me.elspeth;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -38,7 +36,7 @@ public class Export {
 
             File f = new File(folder, path);
 
-            try(BufferedWriter writer = new BufferedWriter(new FileWriter(f))) {
+            try(BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(f), StandardCharsets.UTF_8))) {
                 writer.write(content);
             } catch (IOException e) {
                 e.printStackTrace();

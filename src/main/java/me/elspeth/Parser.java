@@ -95,7 +95,7 @@ public class Parser {
                     }
                 }
                 if (inKey || inLangId) {
-                    if (c >= 'a' && c <= 'z' || c >= 'A' && c <= 'Z') {
+                    if (c >= 'a' && c <= 'z' || c >= 'A' && c <= 'Z' || inKey && c == '_') {
                         current.append(c);
                     } else {
                         if (inKey) {
@@ -146,6 +146,11 @@ public class Parser {
                 } else if (inLangText == 1) {
                     if (c == '"') {
                         inLangText = 2;
+                    } else if(c == '\n') {
+                        current = new StringBuilder();
+                        addTranslation(out, key, currentTranslation, current);
+                        inLangText = 0;
+                        inWhiteSpace = true;
                     } else {
                         current.append(c);
                         inLangText = 3;

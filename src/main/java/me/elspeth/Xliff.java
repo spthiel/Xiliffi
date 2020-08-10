@@ -53,7 +53,7 @@ public class Xliff {
         out.append("<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\" ?>\n");
         out.append("<xliff version=\"1.0\">\n");
         out.append("\t<file source-language=\"").append(source).append("\" ");
-        if(target != null) {
+        if (target != null) {
             out.append("target-language=\"").append(target).append("\" ");
         }
         out.append("datatype=\"plaintext\" original=\"messages\" date=\"").append(Instant.now().toString()).append("\" product-name=\"").append(product).append("\">\n");
@@ -64,12 +64,22 @@ public class Xliff {
 
         keys.forEach((key, value) -> {
             out.append("\t\t\t<trans-unit id=\"").append(key).append("\">\n");
-            out.append("\t\t\t\t<source>").append(value.getSource()).append("</source>\n");
-            if(value.getNote() != null) {
-                out.append("\t\t\t\t<note>").append(value.getNote()).append("</note>\n");
+            if (value.getSource().length() > 0) {
+                out.append("\t\t\t\t<source>").append(value.getSource()).append("</source>\n");
+            } else {
+                out.append("\t\t\t\t<source/>\n");
             }
-            if(value.getTarget() != null) {
-                out.append("\t\t\t\t<target>").append(value.getTarget()).append("</target>\n");
+            if (value.getNote() != null) {
+                if (value.getNote().length() > 0) {
+                    out.append("\t\t\t\t<note>").append(value.getNote()).append("</note>\n");
+                }
+            }
+            if (value.getTarget() != null) {
+                if (value.getTarget().length() > 0) {
+                    out.append("\t\t\t\t<target>").append(value.getTarget()).append("</target>\n");
+                } else {
+                    out.append("\t\t\t\t<target/>\n");
+                }
             }
             out.append("\t\t\t</trans-unit>\n");
         });
