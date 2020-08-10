@@ -52,7 +52,9 @@ SINGLELINEVALUE=[^\ \t\n\"][^\n]*
 <NOTESEPARATOR> {SEPARATOR} {yybegin(NOTEVALUE); return XiliffyTypes.SEPARATOR;}
 
 <VALUE> {WHITE_SPACE}+ {yybegin(VALUE); return XiliffyTypes.WHITESPACE;}
+<VALUE> {CRLF} {yybegin(YYINITIAL); return XiliffyTypes.CRLF;}
 <VALUE> {MULTILINEVALUESTART}{MULTILINEVALUE}{MULTILINEVALUESTART} {yybegin(LINEEND); return XiliffyTypes.VALUE;}
+<VALUE> {MULTILINEVALUESTART}{MULTILINEVALUESTART} {yybegin(LINEEND); return XiliffyTypes.VALUE;}
 <VALUE> {SINGLELINEVALUE} {yybegin(LINEEND); return XiliffyTypes.VALUE;}
 
 <NOTEVALUE> {WHITE_SPACE}+ {yybegin(NOTEVALUE); return XiliffyTypes.WHITESPACE;}
