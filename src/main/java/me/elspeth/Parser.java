@@ -95,7 +95,7 @@ public class Parser {
                     }
                 }
                 if (inKey || inLangId) {
-                    if (c >= 'a' && c <= 'z' || c >= 'A' && c <= 'Z' || inKey && c == '_') {
+                    if (c >= 'a' && c <= 'z' || c >= 'A' && c <= 'Z' || (inKey && (c == '_' || (c >= '0' && c <= '9')))) {
                         current.append(c);
                     } else {
                         if (inKey) {
